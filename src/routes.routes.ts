@@ -4,6 +4,7 @@ import { ConnectUserController } from "./controllers/auth/ConnectUser.controller
 import { CheckEmailUserController } from "./controllers/auth/CheckEmailUser.controller";
 import { CategoryController } from "./controllers/product/Category.controller";
 import { ListCategoryController } from "./controllers/product/ListCategory.controller";
+import { EditCategoryController } from "./controllers/product/EditCategory.controller";
 
 
 const router = Router()
@@ -24,5 +25,7 @@ router.post("/check-email", new CheckEmailUserController().handle)
 router.post("/categories", new CategoryController().handle)
 // Lista categorias
 router.get("/list-categories", new ListCategoryController().handle)
+// Editar categoria
+router.post("/edit-categories", new EditCategoryController().handle)
 
 export { router } 

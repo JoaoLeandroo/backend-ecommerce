@@ -35,6 +35,7 @@ class CategoryService {
                 nameCategorie: nameCategoryLowerCase,
             },
             select: {
+                id: true,
                 nameCategorie: true,
             }
         })
