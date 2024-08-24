@@ -3,6 +3,7 @@ import { RegisterUserController } from "./controllers/auth/RegisterUser.controll
 import { ConnectUserController } from "./controllers/auth/ConnectUser.controller";
 import { CheckEmailUserController } from "./controllers/auth/CheckEmailUser.controller";
 import { CategoryController } from "./controllers/product/Category.controller";
+import { ListCategoryController } from "./controllers/product/ListCategory.controller";
 
 
 const router = Router()
@@ -13,14 +14,15 @@ router.get("/", (request: Request, response: Response) => {
 
 // Registrar usuario
 router.post("/register", new RegisterUserController().handle)
-
 // Logar usuario
 router.post("/session", new ConnectUserController().handle)
-
 // Check se o email está disponivel para uso
 router.post("/check-email", new CheckEmailUserController().handle)
 
+
 // Rota criar categoria
 router.post("/categories", new CategoryController().handle)
+// Lista categorias
+router.get("/list-categories", new ListCategoryController().handle)
 
 export { router } 
