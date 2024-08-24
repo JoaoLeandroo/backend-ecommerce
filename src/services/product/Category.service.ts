@@ -18,20 +18,24 @@ class CategoryService {
             }
         }
 
+        const nameCategoryLowerCase = name.toLowerCase()
 
         const categoryExist = await prisma.categories.findFirst({
-            where: {nameCategorie: name}
+            where: {nameCategorie: nameCategoryLowerCase}
         })
 
         if(categoryExist) {
             return {
-                message: `A categoria ${name} já existe.`
+                message: `A categoria ${nameCategoryLowerCase} já existe.`
             }
         }
 
         const category = await prisma.categories.create({
             data: {
-                nameCategorie: name,
+                nameCategorie: nameCategoryLowerCase,
+            },
+            select: {
+                nameCategorie: true,
             }
         })
 
