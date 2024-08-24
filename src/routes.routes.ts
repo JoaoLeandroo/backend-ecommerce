@@ -2,6 +2,8 @@ import { Request, Response, Router } from "express";
 import { RegisterUserController } from "./controllers/auth/RegisterUser.controller";
 import { ConnectUserController } from "./controllers/auth/ConnectUser.controller";
 import { CheckEmailUserController } from "./controllers/auth/CheckEmailUser.controller";
+import { CategoryController } from "./controllers/product/Category.controller";
+
 
 const router = Router()
 
@@ -17,5 +19,8 @@ router.post("/session", new ConnectUserController().handle)
 
 // Check se o email está disponivel para uso
 router.post("/check-email", new CheckEmailUserController().handle)
+
+// Rota criar categoria
+router.post("/categories", new CategoryController().handle)
 
 export { router } 
