@@ -5,6 +5,7 @@ import { CheckEmailUserController } from "./controllers/auth/CheckEmailUser.cont
 import { CategoryController } from "./controllers/product/Category.controller";
 import { ListCategoryController } from "./controllers/product/ListCategory.controller";
 import { EditCategoryController } from "./controllers/product/EditCategory.controller";
+import { DeleteCategoryController } from "./controllers/product/DeleteCategory.controller";
 
 
 const router = Router()
@@ -27,5 +28,8 @@ router.post("/categories", new CategoryController().handle)
 router.get("/list-categories", new ListCategoryController().handle)
 // Editar categoria
 router.post("/edit-categories", new EditCategoryController().handle)
+// Deletar categoria
+router.post("/delete-categories", new DeleteCategoryController().handle)
+
 
 export { router } 
