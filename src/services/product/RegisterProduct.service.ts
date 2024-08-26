@@ -26,6 +26,26 @@ class RegisterProductService {
         }
         const nameLowerCase = name.toLowerCase()
 
+        const checkProduct = await prisma.produto.findFirst({
+            where: {nomeProduto: nameLowerCase}
+        })
+
+        if(checkProduct) {
+            return {
+                message: `O produto ${nameLowerCase} já está cadastrado.`
+            }
+        }
+
+        const checkCategory = await prisma.categories.findFirst({
+            where: {id: idCategory}
+        })
+
+        if(!checkCategory) {
+            return {
+                message: "O id da categoria informada, não existe ou está incorreto."
+            }
+        }
+
         const product = await prisma.produto.create({
             data: {
                 nomeProduto: nameLowerCase,
