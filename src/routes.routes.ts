@@ -7,6 +7,7 @@ import { ListCategoryController } from "./controllers/product/category/ListCateg
 import { EditCategoryController } from "./controllers/product/category/EditCategory.controller";
 import { DeleteCategoryController } from "./controllers/product/category/DeleteCategory.controller";
 import { RegisterProductController } from "./controllers/product/RegisterProduct.controller";
+import { EditProductController } from "./controllers/product/EditProduct.controller";
 
 const router = Router();
 
@@ -32,5 +33,7 @@ router.post("/delete-categories", new DeleteCategoryController().handle);
 
 // Cadastrar produto
 router.post("/register-product", new RegisterProductController().handle)
+// Editart produto
+router.post("/edit-product", new EditProductController().handle)
 
 export { router };
