@@ -9,6 +9,7 @@ import { DeleteCategoryController } from "./controllers/product/category/DeleteC
 import { RegisterProductController } from "./controllers/product/RegisterProduct.controller";
 import { EditProductController } from "./controllers/product/EditProduct.controller";
 import { DeleteProductController } from "./controllers/product/DeleteProduct.controller";
+import { ListProductController } from "./controllers/product/ListProduct.controller";
 
 const router = Router();
 
@@ -38,5 +39,7 @@ router.post("/register-product", new RegisterProductController().handle)
 router.post("/edit-product", new EditProductController().handle)
 // Deletar produto
 router.post("/delete-product", new DeleteProductController().handle)
+// Lista de produtos
+router.get("/list-products", new ListProductController().handle)
 
 export { router };
