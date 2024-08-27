@@ -10,7 +10,7 @@ interface RegisterProductProps {
 
 // arrumar depois o amount, para receber apenas valores do tipo inteiro
 const RegisterProductZod = z.object({
-    name: z.string().min(1, {message: "O nome do produto deve conter no minimo 1 caractere."}).max(22, {message: "O produto deve conter no maximo 22 caracteres."}),
+    name: z.string().min(1, {message: "O nome do produto deve conter no minimo 1 caractere."}).max(100, {message: "O produto deve conter no maximo 22 caracteres."}),
     amount: z.number().min(1, {message: "É necessario ter no minímo 1 produto."}),
     value: z.number({message: "É obrigatorio informar um valor."}),
     idCategory: z.string({message: "É necessario informar o ID da categoria valido."}),
