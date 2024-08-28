@@ -10,6 +10,7 @@ import { RegisterProductController } from "./controllers/product/RegisterProduct
 import { EditProductController } from "./controllers/product/EditProduct.controller";
 import { DeleteProductController } from "./controllers/product/DeleteProduct.controller";
 import { ListProductController } from "./controllers/product/ListProduct.controller";
+import { isAuthentication } from "./middlewares/IsAuthentication";
 
 const router = Router();
 
