@@ -55,9 +55,10 @@ model Produto {
 model Admin {
   id String @id @default(uuid())
   createAt DateTime @default(now())
+  userAdmin Boolean @default(false)
 
-  usuario Usuario @relation(fields: [nameId], references: [id])
-  nameId String
+  usuario Usuario @relation(fields: [userEmail], references: [email])
+  userEmail String
 
   @@map("admin")
 }
