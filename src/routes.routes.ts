@@ -26,20 +26,20 @@ router.post("/session", new ConnectUserController().handle);
 router.post("/check-email", new CheckEmailUserController().handle);
 
 // Rota criar categoria
-router.post("/categories", new CategoryController().handle);
+router.post("/categories", isAuthentication, new CategoryController().handle);
 // Lista categorias
 router.get("/list-categories", new ListCategoryController().handle);
 // Editar categoria
-router.post("/edit-categories", new EditCategoryController().handle);
+router.post("/edit-categories", isAuthentication, new EditCategoryController().handle);
 // Deletar categoria
-router.post("/delete-categories", new DeleteCategoryController().handle);
+router.post("/delete-categories", isAuthentication, new DeleteCategoryController().handle);
 
 // Cadastrar produto
-router.post("/register-product", new RegisterProductController().handle)
+router.post("/register-product", isAuthentication, new RegisterProductController().handle)
 // Editar produto
-router.post("/edit-product", new EditProductController().handle)
+router.post("/edit-product", isAuthentication, new EditProductController().handle)
 // Deletar produto
-router.post("/delete-product", new DeleteProductController().handle)
+router.post("/delete-product", isAuthentication, new DeleteProductController().handle)
 // Lista de produtos
 router.get("/list-products", new ListProductController().handle)
 

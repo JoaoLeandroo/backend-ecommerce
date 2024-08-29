@@ -54,7 +54,7 @@ class ConnectUserService {
         process.env.JWT_SECRET,
         {
           subject: userAlreadyExist.id,
-          expiresIn: "30d",
+          expiresIn: "7d",
         }
       );
     }
