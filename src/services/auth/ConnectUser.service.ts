@@ -5,7 +5,6 @@ import { z } from "zod";
 interface ConnectUserProps {
   email: string;
   password: string;
-  idAdmin?: string | any;
 }
 
 const AuthUser = z.object({
@@ -16,7 +15,7 @@ const AuthUser = z.object({
 });
 
 class ConnectUserService {
-  async execute({ email, password, idAdmin }: ConnectUserProps) {
+  async execute({ email, password }: ConnectUserProps) {
     const parseResult = AuthUser.safeParse({ email, password });
     if (!parseResult.success) {
       return {
@@ -42,34 +41,29 @@ class ConnectUserService {
       };
     }
 
-    // const userAdmin = await prisma.admin.findFirst({
-    //   where: { nameId: idAdmin },
-    // });
-
-    // if (userAdmin) {
-    //   const token = sign(
-    //     {
-    //       id: userAlreadyExist.id,
-    //       name: userAlreadyExist.name,
-    //     },
-    //     process.env.JWT_SECRET,
-    //     {
-    //       subject: userAlreadyExist.id,
-    //       expiresIn: "30d",
-    //     }
-    //   );
-    //   return {
-    //     id: userAlreadyExist.id,
-    //     name: userAlreadyExist.name,
-    //     email: userAlreadyExist.email,
-    //     token,
-    //   };
-    // }
+    const adm = await prisma.admin.findFirst({
+      where: { userEmail: email },
+    });
+    let token: string | null;
+    if (adm) {
+      token = sign(
+        {
+          id: userAlreadyExist.id,
+          name: userAlreadyExist.name,
+        },
+        process.env.JWT_SECRET,
+        {
+          subject: userAlreadyExist.id,
+          expiresIn: "30d",
+        }
+      );
+    }
 
     return {
       id: userAlreadyExist.id,
       name: userAlreadyExist.name,
       email: userAlreadyExist.email,
+      token,
     };
   }
 }
