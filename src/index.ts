@@ -19,4 +19,4 @@ server.use((erro: Error, request: Request, response: Response, next: NextFunctio
     })
 })
 
-server.listen(3000, () => console.log("servidor rodando com sucesso"))
+server.listen(process.env.PORT, () => console.log(`Servidor rodando em http://localhost:${process.env.PORT}`))
