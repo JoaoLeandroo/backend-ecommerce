@@ -23,7 +23,7 @@ router.post("/register", new RegisterUserController().handle);
 // Logar usuario
 router.post("/session", new ConnectUserController().handle);
 // Check se o email está disponivel para uso
-router.post("/check-email", new CheckEmailUserController().handle);
+router.post("/check-email", isAuthentication, new CheckEmailUserController().handle);
 
 // Rota criar categoria
 router.post("/categories", isAuthentication, new CategoryController().handle);
