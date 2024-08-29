@@ -1,9 +1,13 @@
 import express, { Request, Response, NextFunction } from "express"
+import cors from "cors"
 import { router } from "./routes.routes"
 
 const server = express()
 
 server.use(express.json())
+
+server.use(cors())
+
 server.use(router)
 
 server.use((erro: Error, request: Request, response: Response, next: NextFunction) => {
@@ -15,7 +19,7 @@ server.use((erro: Error, request: Request, response: Response, next: NextFunctio
 
     return response.status(500).json({
         status: "error",
-        message: "Internal server error!!"
+        message: "Internal server error."
     })
 })
 
