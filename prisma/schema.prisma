@@ -42,6 +42,7 @@ model Produto {
   nomeProduto String
   quantidade Int
   valorProduto Float
+  urlImage String
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
   
