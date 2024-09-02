@@ -3,7 +3,7 @@ import { RegisterProductService } from "../../services/product/RegisterProduct.s
 
 class RegisterProductController {
     async handle(request: Request, response: Response) {
-        const { name, amount, value, idCategory } = request.body;
+        const { name, amount, value, urlImage, idCategory } = request.body;
 
         const registerProductService = new RegisterProductService()
 
@@ -11,6 +11,7 @@ class RegisterProductController {
             name,
             amount,
             value,
+            urlImage,
             idCategory,
         })
 
