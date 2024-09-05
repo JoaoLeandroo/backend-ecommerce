@@ -41,29 +41,23 @@ class ConnectUserService {
       };
     }
 
-    const adm = await prisma.admin.findFirst({
-      where: { userEmail: email },
-    });
-    let token: string | null;
-    if (adm) {
-      token = sign(
-        {
-          id: userAlreadyExist.id,
-          name: userAlreadyExist.name,
-        },
-        process.env.JWT_SECRET,
-        {
-          subject: userAlreadyExist.id,
-          expiresIn: "7d",
-        }
-      );
-    }
+    const token = sign(
+      {
+        id: userAlreadyExist.id,
+        name: userAlreadyExist.name,
+      },
+      process.env.JWT_SECRET,
+      {
+        subject: userAlreadyExist.id,
+        expiresIn: "30d",
+      }
+    );
 
     return {
       id: userAlreadyExist.id,
       name: userAlreadyExist.name,
       email: userAlreadyExist.email,
-      token,
+      token: token,
     };
   }
 }
