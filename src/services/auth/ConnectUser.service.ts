@@ -45,6 +45,7 @@ class ConnectUserService {
       {
         id: userAlreadyExist.id,
         name: userAlreadyExist.name,
+        email: userAlreadyExist.email,
       },
       process.env.JWT_SECRET,
       {

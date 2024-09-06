@@ -58,8 +58,8 @@ model Admin {
   createAt DateTime @default(now())
   userAdmin Boolean @default(false)
 
-  usuario Usuario @relation(fields: [userEmail], references: [email])
-  userEmail String
+  usuario Usuario @relation(fields: [userId], references: [id])
+  userId String
 
   @@map("admin")
 }

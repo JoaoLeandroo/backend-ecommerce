@@ -10,7 +10,9 @@ import { RegisterProductController } from "./controllers/product/RegisterProduct
 import { EditProductController } from "./controllers/product/EditProduct.controller";
 import { DeleteProductController } from "./controllers/product/DeleteProduct.controller";
 import { ListProductController } from "./controllers/product/ListProduct.controller";
+
 import { isAuthentication } from "./middlewares/IsAuthentication";
+import { checkUserPermission } from "./middlewares/CheckUserPermission";
 
 const router = Router();
 
@@ -26,7 +28,7 @@ router.post("/session", new ConnectUserController().handle);
 router.post("/check-email", new CheckEmailUserController().handle);
 
 // Rota criar categoria
-router.post("/categories", isAuthentication, new CategoryController().handle);
+router.post("/categories", isAuthentication, checkUserPermission, new CategoryController().handle);
 // Lista categorias
 router.get("/list-categories", new ListCategoryController().handle);
 // Editar categoria
