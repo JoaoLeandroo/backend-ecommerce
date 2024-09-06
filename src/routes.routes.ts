@@ -32,16 +32,16 @@ router.post("/categories", isAuthentication, checkUserPermission, new CategoryCo
 // Lista categorias
 router.get("/list-categories", new ListCategoryController().handle);
 // Editar categoria
-router.post("/edit-categories", isAuthentication, new EditCategoryController().handle);
+router.post("/edit-categories", isAuthentication, checkUserPermission, new EditCategoryController().handle);
 // Deletar categoria
-router.post("/delete-categories", isAuthentication, new DeleteCategoryController().handle);
+router.post("/delete-categories", isAuthentication, checkUserPermission, new DeleteCategoryController().handle);
 
 // Cadastrar produto
-router.post("/register-product", isAuthentication, new RegisterProductController().handle)
+router.post("/register-product", isAuthentication, checkUserPermission, new RegisterProductController().handle)
 // Editar produto
-router.post("/edit-product", isAuthentication, new EditProductController().handle)
+router.post("/edit-product", isAuthentication, checkUserPermission, new EditProductController().handle)
 // Deletar produto
-router.post("/delete-product", isAuthentication, new DeleteProductController().handle)
+router.post("/delete-product", isAuthentication, checkUserPermission, new DeleteProductController().handle)
 // Lista de produtos
 router.get("/list-products", new ListProductController().handle)
 
