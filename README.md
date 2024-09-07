@@ -78,7 +78,7 @@ Configurações básicas do projeto
 }
 ```
 
-### 5. Deletar categoria - **POST /delete-categories**
+### 6. Deletar categoria - **POST /delete-categories**
 
     Para deletar uma categoria, o usuário deve atender aos seguintes requisitos:
 - **Ser um administrador** (cadastrado na tabela **Admin**).
@@ -92,6 +92,63 @@ Configurações básicas do projeto
 }
 ```
 
-### 5. Buscar todas as categorias - **GET /list-categories**
+### 7. Buscar todas as categorias - **GET /list-categories**
 
     Para buscar todas as categorias cadastradas, pelo usuario Admin, é necessario fazer uma requisição do tipo **GET** para a rota `/list-categories`
+
+### 8. Cadastrar produto - **POST /register-product**
+
+    Para registrar um produto, o usuário deve atender aos seguintes requisitos:
+- **Ser um administrador** (cadastrado na tabela **Admin**).
+- **Estar autenticado** com um token JWT válido. 
+
+    Se tudo estiver ok, envie uma requisição do tipo **POST** para a rota `/register-product`, com o seguinte corpo:
+
+```json
+{
+	"name": "Televisão",
+	"amount": 20,
+	"value": 1340.99,
+	"urlImage": "www.imagesexample/img-1",
+	"idCategory": "id-da-categoria"
+}
+```
+
+### 9. editar produto - **POST /edit-product**
+
+    Para editar um produto, o usuário deve atender aos seguintes requisitos:
+- **Ser um administrador** (cadastrado na tabela **Admin**).
+- **Estar autenticado** com um token JWT válido. 
+
+    Se tudo estiver ok, envie uma requisição do tipo **POST** para a rota `/edit-product`, com o seguinte corpo:
+
+```json
+{
+	"name": "nome produto",
+	"amount": 10,
+	"value": 120.50,
+	"urlImage": "www.imagesexample/image-10",
+	"idCategory": "id-da-categoria"
+}
+```
+
+- **Não é necessario enviar todos os valores no corpo da requisição, caso não seja editado, irá permanecer os valores adicionados inicialmente e alterados apenas os valores enviados**
+
+
+### 10. Deletar produto - **POST /delete-product**
+
+    Para deletar um produto, o usuário deve atender aos seguintes requisitos:
+- **Ser um administrador** (cadastrado na tabela **Admin**).
+- **Estar autenticado** com um token JWT válido. 
+
+    Se tudo estiver ok, envie uma requisição do tipo **POST** para a rota `/delete-product`, com o seguinte corpo:
+
+```json
+{
+    "id": "id-do-produto"
+}
+```
+
+### 11. Cadastrar produto - **GET /list-product**
+
+    Para buscar todas os produtos cadastradas, pelo usuario Admin, é necessario fazer uma requisição do tipo **GET** para a rota `/list-product`
