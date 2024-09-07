@@ -20,7 +20,7 @@
 ### 1. Registrar usuário - **POST /register**
 
     Para cadastrar um usuario será necessário fazer uma requisição do tipo **POST** para a rota **/register**, com o seguinte corpo:
-    
+
 ```json
 {
     "name": "User",
@@ -37,3 +37,15 @@
 {
   "email": "example@example.com"
 }
+```
+### 3. Conectar usuário - **POST /session**
+
+    Para conectar o usuario é necessario configurar o JWT_SECRET dentro das variaveis de ambiente, em seguida envie uma requisição do tipo **POST** para a rota `/session`, com o seguinte corpo:
+
+```json
+{
+    "email": "example@example",
+    "password": "passwordExample"
+}
+```
+
