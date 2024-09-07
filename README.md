@@ -23,9 +23,7 @@
     
         {
             "name": "Joao",
-
             "email": "joao@example.com",
-        
             "password": "passwordUser"
         }
 
