@@ -1,21 +1,21 @@
-**API E-COMMERCE BACKEND**
+### **API E-COMMERCE BACKEND**
 
-#Configurações básicas do projeto
+Configurações básicas do projeto
 
 1. Clone o repositório:
     
-    git clone https://github.com/JoaoLeandroo/backend-ecommerce.git
+        git clone https://github.com/JoaoLeandroo/backend-ecommerce.git
 
 
 2. Instale as depências do projeto:
 
-    npm install
+        npm install
 
 
 3. Crie um arquivo .env e configure as variáveis de ambiente de acordo com o .env.example
 
 
-**Endpoints**
+### **Endpoints**
 
 ### 1. Registrar usuário - **POST /register**
 
@@ -46,6 +46,18 @@
 {
     "email": "example@example",
     "password": "passwordExample"
+}
+```
+
+### 4. Criar uma categoria - **POST /categories**
+
+    Para criar uma nova categoria, o usuário deve atender aos seguintes requisitos:
+- **Ser um administrador** (cadastrado na tabela **Admin**).
+- **Estar autenticado** com um token JWT válido.
+
+```json
+{
+    "name": "Digitais"
 }
 ```
 
