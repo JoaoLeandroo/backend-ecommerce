@@ -152,3 +152,14 @@ Configurações básicas do projeto
 ### 11. Buscar produto - **GET /list-product**
 
     Para buscar todas os produtos cadastradas, pelo usuario Admin, é necessario fazer uma requisição do tipo **GET** para a rota `/list-product`
+
+
+### 12. Verificar se o usuario é admin - **POST /check-admin**
+
+    Para verificar se o usuario é um admin, é necessario fazer uma requisição do tipo **POST** para a rota `/check-admin`, com o seguinte corpo:
+
+```json
+{
+    "id": "id-do-usuario"
+}
+```
