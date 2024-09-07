@@ -10,6 +10,7 @@ import { RegisterProductController } from "./controllers/product/RegisterProduct
 import { EditProductController } from "./controllers/product/EditProduct.controller";
 import { DeleteProductController } from "./controllers/product/DeleteProduct.controller";
 import { ListProductController } from "./controllers/product/ListProduct.controller";
+import { VerifyUserAdminController } from "./controllers/auth/VerifyUserAdmin.controller";
 
 import { isAuthentication } from "./middlewares/IsAuthentication";
 import { checkUserPermission } from "./middlewares/CheckUserPermission";
@@ -44,5 +45,7 @@ router.post("/edit-product", isAuthentication, checkUserPermission, new EditProd
 router.post("/delete-product", isAuthentication, checkUserPermission, new DeleteProductController().handle)
 // Lista de produtos
 router.get("/list-products", new ListProductController().handle)
+
+router.post("/check-admin", new VerifyUserAdminController().handle)
 
 export { router };

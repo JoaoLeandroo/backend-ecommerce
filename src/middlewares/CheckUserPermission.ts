@@ -8,7 +8,6 @@ interface PayLoad {
 
 const checkUserPermission = async (request: Request, response: Response, next: NextFunction) => {
 
-    const userAdmin = request.body
     const authToken = request.headers.authorization
     if(!authToken) {
         
