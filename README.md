@@ -15,21 +15,24 @@
 3. Crie um arquivo .env e configure as variáveis de ambiente de acordo com o .env.example
 
 
-***Endpoints***
+**Endpoints**
 
-1. Registrar usuário */register*
+1. Registrar usuário. **/register**
 
-    Para cadastrar um usuario será necessário fazer uma requisição do tipo **POST**, enviando na rota */register*, as seguintes informações no corpo da requisição: name, email e password.
+    Para cadastrar um usuario será necessário fazer uma requisição do tipo **POST**, enviando na rota **/register**, as seguintes informações no corpo da requisição: name, email e password.
     
         {
-            "name": "Joao",
-            "email": "joao@example.com",
-            "password": "passwordUser"
+            "name": "User",
+            "email": "example@example.com",
+            "password": "passwordExample"
         }
 
 
-2. Conectar usuário
+### 2. Verificar se o Email já está cadastrado - **POST /check-email**
 
-    ##testing...
-    
-    
+    Para verificar se o email do usuário já está cadastrado, envie uma requisição do tipo **POST** para a rota `/check-email`, com o seguinte corpo:
+
+```json
+{
+  "email": "example@example.com"
+}
