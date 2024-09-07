@@ -22,7 +22,9 @@
     Para cadastrar um usuario será necessário fazer uma requisição do tipo **POST**, enviando na rota */register*, as seguintes informações no corpo da requisição: name, email e password.
     {
         "name": "Joao",
+
         "email": "joao@example.com",
+        
         "password": "passwordUser"
     }
 
