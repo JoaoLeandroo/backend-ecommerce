@@ -149,6 +149,6 @@ Configurações básicas do projeto
 }
 ```
 
-### 11. Cadastrar produto - **GET /list-product**
+### 11. Buscar produto - **GET /list-product**
 
     Para buscar todas os produtos cadastradas, pelo usuario Admin, é necessario fazer uma requisição do tipo **GET** para a rota `/list-product`
