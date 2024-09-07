@@ -55,9 +55,43 @@ Configurações básicas do projeto
 - **Ser um administrador** (cadastrado na tabela **Admin**).
 - **Estar autenticado** com um token JWT válido.
 
+    Se tudo estiver ok, envie uma requisição do tipo **POST** para a rota `/categories`, com o seguinte corpo:
+
 ```json
 {
     "name": "Digitais"
 }
 ```
 
+### 5. Editar categoria - **POST /edit-categories**
+
+    Para editar uma categoria, o usuário deve atender aos seguintes requisitos:
+- **Ser um administrador** (cadastrado na tabela **Admin**).
+- **Estar autenticado** com um token JWT válido. 
+
+    Se tudo estiver ok, envie uma requisição do tipo **POST** para a rota `/edit-categories`, com o seguinte corpo:
+
+```json
+{
+    "id": "id-da-categoria",
+    "name": "Novo nome da categoria"
+}
+```
+
+### 5. Deletar categoria - **POST /delete-categories**
+
+    Para deletar uma categoria, o usuário deve atender aos seguintes requisitos:
+- **Ser um administrador** (cadastrado na tabela **Admin**).
+- **Estar autenticado** com um token JWT válido. 
+
+    Se tudo estiver ok, envie uma requisição do tipo **POST** para a rota `/delete-categories`, com o seguinte corpo:
+
+```json
+{
+    "id": "id-da-categoria",
+}
+```
+
+### 5. Buscar todas as categorias - **GET /list-categories**
+
+    Para buscar todas as categorias cadastradas, pelo usuario Admin, é necessario fazer uma requisição do tipo **GET** para a rota `/list-categories`
