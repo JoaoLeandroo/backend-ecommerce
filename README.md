@@ -17,16 +17,17 @@
 
 **Endpoints**
 
-1. Registrar usuário. **/register**
+### 1. Registrar usuário - **POST /register**
 
-    Para cadastrar um usuario será necessário fazer uma requisição do tipo **POST**, enviando na rota **/register**, as seguintes informações no corpo da requisição: name, email e password.
+    Para cadastrar um usuario será necessário fazer uma requisição do tipo **POST** para a rota **/register**, com o seguinte corpo:
     
-        {
-            "name": "User",
-            "email": "example@example.com",
-            "password": "passwordExample"
-        }
-
+```json
+{
+    "name": "User",
+    "email": "example@example.com",
+    "password": "passwordExample"
+}
+```
 
 ### 2. Verificar se o Email já está cadastrado - **POST /check-email**
 
